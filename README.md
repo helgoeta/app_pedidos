@@ -1,1 +1,1 @@
-🚧Projeto em constução🚧
+🚧Projeto em construção🚧
