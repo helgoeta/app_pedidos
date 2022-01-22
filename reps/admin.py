@@ -1,3 +1,6 @@
 from django.contrib import admin
+from reps.models import Empresa, Cliente, Produto
 
-# Register your models here.
+admin.site.register(Empresa)
+admin.site.register(Cliente)
+admin.site.register(Produto)
