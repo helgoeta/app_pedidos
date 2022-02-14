@@ -14,7 +14,7 @@ class Empresa(models.Model):
 
 class Cliente(models.Model):
     """Modelo que representa o terceiro"""
-    razao_social=models.CharField(max_length=200)
+    razao_social=models.CharField(max_length=200, verbose_name='Razão Social')
     data_de_cadastro=models.DateTimeField(auto_now_add=True)
     ultima_alteracao=models.DateTimeField(auto_now=True)
     empresa_id=Empresa(id)
@@ -27,9 +27,9 @@ class Produto(models.Model):
     nome=models.CharField(max_length=200)
     codigo=models.CharField(max_length=120)
     tabela_preco=models.DecimalField(max_digits=20, decimal_places=2)
-    multiplo=models.DecimalField(max_digits=7, decimal_places=2)
+    multiplo=models.DecimalField(max_digits=7, decimal_places=2, null=True, blank=True)
     ultima_alteracao=models.DateTimeField(auto_now=True)
     empresa_id=Empresa(id)
-        
+    
     def __str__(self):
         return self.nome
