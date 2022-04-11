@@ -1,0 +1,16 @@
+{% extends "base_generica.html" %}
+
+{% block content %}
+<h1>Produtos</h1>
+    {% if produtos_lista %}
+        <ul>
+            {% for produto in produtos_lista %}
+            <li>
+                <a href="{% url 'produto-detalhes' produto.pk %}">{{ produto.nome }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum produto cadastrado</p>
+    {% endif %}
+{% endblock %}

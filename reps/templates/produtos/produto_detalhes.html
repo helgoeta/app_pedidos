@@ -1,0 +1,8 @@
+{% extends "base_generica.html" %}
+
+{% block content %}
+    <p><b>Nome:</b> {{ produto_detalhes.nome }}</p>
+    <p><b>Código:</b> {{ produto_detalhes.codigo}}</p>
+    <p><b>Tabela de preço:</b> R$ {{ produto_detalhes.tabela_preco}}</p>
+    <p>Múltiplo: {{ produto_detalhes.multiplo }}<!--Tratar o múltiplo qunado é nulo--></p>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base_generica.html" %}
+
+{% block content %}
+    <h1>Clientes</h1>
+    {% if clientes_lista %}
+    <ul>
+        {% for cliente in clientes_lista %}
+        <li>
+            <a href="{% url 'cliente-detalhes' cliente.pk %}">{{ cliente.razao_social }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Nenhum cliente cadastrado.</p>
+    {% endif %}
+{% endblock %}

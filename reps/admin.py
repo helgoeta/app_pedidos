@@ -15,3 +15,4 @@ class ClienteAdmin(admin.ModelAdmin):
 class ProdutoAdmin(admin.ModelAdmin):
     list_display = ('codigo', 'nome', 'tabela_preco')
     fields = ['nome', ('codigo', 'multiplo', 'tabela_preco')]
+    pass
