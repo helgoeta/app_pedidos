@@ -22,6 +22,9 @@ class Cliente(models.Model):
     def __str__(self):
         return self.razao_social
 
+    class Meta:
+        ordering = ['razao_social']
+
 class Produto(models.Model):
     """Model que representa os produtos"""
     nome=models.CharField(max_length=200)
@@ -33,3 +36,6 @@ class Produto(models.Model):
     
     def __str__(self):
         return self.nome
+
+    class Meta:
+        ordering = ['nome']

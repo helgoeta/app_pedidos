@@ -19,6 +19,7 @@ def index(request):
 
 class ClienteListView(generic.ListView):
     model = Cliente
+    paginate_by = 10
     context_object_name = 'clientes_lista'
     template_name = 'clientes/clientes_lista.html'
 
@@ -31,6 +32,7 @@ class ClienteDetailView(generic.DetailView):
 
 class ProdutoListView(generic.ListView):
     model = Produto
+    paginate_by = 10
     context_object_name = 'produtos_lista'
     template_name = 'produtos/produtos_lista.html'
 
