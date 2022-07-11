@@ -2,6 +2,9 @@
 
 {% block content %}
 <h1>Produtos</h1>
+
+<button><a class="btn-cadastro" href="{% url 'cadastro-produto' %}">Cadastrar Produto</a></button>
+
     {% if produtos_lista %}
         <ul>
             {% for produto in produtos_lista %}

@@ -1,11 +1,12 @@
 from unicodedata import name
 from django.urls import path
-from reps import views
+from .views import HomeView, ClienteListView, ClienteDetailView, ProdutoListView, ProdutoDetailView, addPostProduto
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('clientes/', views.ClienteListView.as_view(), name='clientes'),
-    path('clientes/<int:pk>/detalhes', views.ClienteDetailView.as_view(), name='cliente-detalhes'),
-    path('produtos/', views.ProdutoListView.as_view(), name='produtos'),
-    path('produtos/<int:pk>/detalhes', views.ProdutoDetailView.as_view(), name='produto-detalhes'),
+    path('', HomeView, name='index'),
+    path('clientes/', ClienteListView.as_view(), name='clientes'),
+    path('clientes/<int:pk>/detalhes', ClienteDetailView.as_view(), name='cliente-detalhes'),
+    path('produtos/', ProdutoListView.as_view(), name='produtos'),
+    path('produtos/<int:pk>/detalhes', ProdutoDetailView.as_view(), name='produto-detalhes'),
+    path('produtos/cadastrar', addPostProduto.as_view(), name='cadastro-produto')
 ]

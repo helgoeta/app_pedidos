@@ -1,4 +1,6 @@
+from audioop import reverse
 from django.db import models
+from django.urls import reverse
 
 class Empresa(models.Model):
     """Modelo que representa a Empresa"""
@@ -37,5 +39,26 @@ class Produto(models.Model):
     def __str__(self):
         return self.nome
 
+    
     class Meta:
         ordering = ['nome']
+
+    def get_absolute_url(self):
+        return reverse('produtos')
+
+
+class Pedido(models.Model):
+    cliente_id=models.ForeignKey('Cliente', on_delete=models.SET_NULL, null=True)
+    razao_social=models.CharField(max_length=200, verbose_name='Razão Social')
+    total=models.DecimalField(max_digits=20,decimal_places=2)
+    data_criacao=models.DateTimeField(auto_now=True)
+    data_emissao=models.DateTimeField(auto_now=True)
+    info_adicionais=models.CharField(max_length=500)
+    condicao_pagmento=models.CharField(max_length=120)
+    ultima_alteracao=models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.razao_social
+
+    class Meta:
+        ordering = ['razao_social']
