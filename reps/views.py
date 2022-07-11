@@ -30,6 +30,10 @@ class ClienteDetailView(DetailView):
     context_object_name = 'cliente_detalhes'
     template_name = 'clientes/cliente_detalhes.html'
 
+class addPostCliente(CreateView):
+    model = Cliente
+    template_name = 'clientes/add_cliente.html'
+    fields = '__all__'
 
 class ProdutoListView(ListView):
     model = Produto

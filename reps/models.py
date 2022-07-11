@@ -27,6 +27,9 @@ class Cliente(models.Model):
     class Meta:
         ordering = ['razao_social']
 
+    def get_absolute_url(self):
+        return reverse('clientes')
+
 class Produto(models.Model):
     """Model que representa os produtos"""
     nome=models.CharField(max_length=200)
