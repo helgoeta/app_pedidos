@@ -1,0 +1,20 @@
+{% extends "base_generica.html" %}
+
+{% block content %}
+    <h1>Pedidos</h1>
+    <button><a class="btn-cadastro" href="{% url 'novo-pedido' %}">Novo Pedido</a></button>
+    {% if pedidos_lista %}
+    <ul>
+        {% for pedido in pedidos_lista %}
+        <div style="border: 1px solid #EACDC2;">
+            <a href="{% url 'pedido_detalhe' pedido.pk %}"><p>#numero</p></a>
+            <p>{{ pedido.cliente_id }}</p>
+            <p>{{ pedido.condicao_pagamento }}</p>
+            <p>R${{ pedido.total }}</p>
+        </div>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Nenhum pedido encontrado.</p>
+    {% endif %}
+{% endblock %}

@@ -51,8 +51,7 @@ class Produto(models.Model):
 
 
 class Pedido(models.Model):
-    cliente_id=models.ForeignKey('Cliente', on_delete=models.SET_NULL, null=True)
-    razao_social=models.CharField(max_length=200, verbose_name='Razão Social')
+    cliente_id=models.ForeignKey('Cliente', on_delete=models.SET_NULL, null=True, verbose_name='Razão Social')
     total=models.DecimalField(max_digits=20,decimal_places=2)
     data_criacao=models.DateTimeField(auto_now=True)
     data_emissao=models.DateTimeField(auto_now=True)
@@ -62,6 +61,9 @@ class Pedido(models.Model):
 
     def __str__(self):
         return self.razao_social
+   
+    def get_absolute_url(self):
+        return reverse('pedidos')
 
     class Meta:
         ordering = ['razao_social']
