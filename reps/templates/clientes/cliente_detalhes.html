@@ -1,5 +1,10 @@
 {% extends "base_generica.html" %}
 
 {% block content %}
-    <p>Razão Social: {{ cliente_detalhes.razao_social }}</p>
+
+    <p>Razão Social: {{ cliente_detalhes.razao_social }} - <a href="{% url 'altera-cliente' cliente_detalhes.id %}">Alterar</a></p> 
+
+    
+
+    
 {% endblock %}

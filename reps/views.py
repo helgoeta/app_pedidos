@@ -1,7 +1,7 @@
 from re import template
 from django.shortcuts import render
 from reps.models import Cliente, Produto, Pedido
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.backends import BaseBackend
 
 
@@ -35,6 +35,11 @@ class addPostCliente(CreateView):
     template_name = 'clientes/add_cliente.html'
     fields = '__all__'
 
+class updatePostCliente(UpdateView):
+    model = Cliente
+    template_name = 'clientes/update_cliente.html'
+    fields = '__all__'
+
 class ProdutoListView(ListView):
     model = Produto
     paginate_by = 10
@@ -57,3 +62,14 @@ class PedidoListView(ListView):
     paginate_by = 15
     context_object_name = 'pedidos_lista'
     template_name = 'pedidos/pedidos_lista.html'
+
+class PedidoDetailView(DetailView):
+    model = Pedido
+    template_name = 'pedidos/pedidos_detalhe.html'
+    context_object_name = 'pedido_detalhe'
+    template_name = 'pedidos/pedido_detalhe.html'
+
+class addPostPedido(CreateView):
+    model = Pedido
+    template_name = 'pedidos/add_pedido.html'
+    fields = '__all__'

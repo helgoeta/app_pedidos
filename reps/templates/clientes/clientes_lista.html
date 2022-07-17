@@ -7,7 +7,7 @@
     <ul>
         {% for cliente in clientes_lista %}
         <li>
-            <a href="{% url 'cliente-detalhes' cliente.pk %}">{{ cliente.razao_social }}</a>
+            <a href="{% url 'cliente-detalhes' cliente.pk %}">{{ cliente.razao_social }}</a> - <a href="{% url 'altera-cliente' cliente.pk %}">Alterar</a>
         </li>
         {% endfor %}
     </ul>
