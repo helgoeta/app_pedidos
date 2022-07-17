@@ -46,7 +46,6 @@ class ProdutoListView(ListView):
     context_object_name = 'produtos_lista'
     template_name = 'produtos/produtos_lista.html'
 
-
 class ProdutoDetailView(DetailView):
     model = Produto
     context_object_name = 'produto_detalhes'
@@ -55,6 +54,11 @@ class ProdutoDetailView(DetailView):
 class addPostProduto(CreateView):
     model = Produto
     template_name = 'produtos/add_produto.html'
+    fields = '__all__'
+
+class updatePostProduto(UpdateView):
+    model = Produto
+    template_name = 'produtos/update_produto.html'
     fields = '__all__'
 
 class PedidoListView(ListView):

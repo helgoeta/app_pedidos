@@ -4,5 +4,6 @@
     <h1> {{ produto_detalhes.nome }}</h1>
     <p><b>Código:</b> {{ produto_detalhes.codigo}}</p>
     <p><b>Tabela de preço:</b> R$ {{ produto_detalhes.tabela_preco}}</p>
-    <p>Múltiplo: {{ produto_detalhes.multiplo }}<!-- TODO: Tratar o múltiplo qunado é nulo --></p>
+    <p>Múltiplo: {{ produto_detalhes.multiplo }} </p>
+    <a href="{% url 'altera-produto' produto_detalhes.id %}">Alterar</a>
 {% endblock %}
